@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6279D60-C495-4063-A554-DA4A294E3044}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GastosPessoais</RootNamespace>
+    <AssemblyName>GastosPessoais</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v24.1.Core, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Categoria\form_categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categoria\form_categoria.Designer.cs">
+      <DependentUpon>form_categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria\form_categoria_gerenciar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categoria\form_categoria_gerenciar.Designer.cs">
+      <DependentUpon>form_categoria_gerenciar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\form_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\form_clientes.Designer.cs">
+      <DependentUpon>form_clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\form_clientes_gerenciar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\form_clientes_gerenciar.Designer.cs">
+      <DependentUpon>form_clientes_gerenciar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_login.Designer.cs">
+      <DependentUpon>form_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gastos_pessoaisDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gastos_pessoaisDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\form_principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\form_principal.Designer.cs">
+      <DependentUpon>form_principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\form_produtos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\form_produtos.Designer.cs">
+      <DependentUpon>form_produtos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos\form_produtos_gerenciar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Produtos\form_produtos_gerenciar.Designer.cs">
+      <DependentUpon>form_produtos_gerenciar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\form_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\form_usuarios.Designer.cs">
+      <DependentUpon>form_usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios\form_usuarios_gerenciar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\form_usuarios_gerenciar.Designer.cs">
+      <DependentUpon>form_usuarios_gerenciar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Categoria\form_categoria.resx">
+      <DependentUpon>form_categoria.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categoria\form_categoria_gerenciar.resx">
+      <DependentUpon>form_categoria_gerenciar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\form_clientes.resx">
+      <DependentUpon>form_clientes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\form_clientes_gerenciar.resx">
+      <DependentUpon>form_clientes_gerenciar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_login.resx">
+      <DependentUpon>form_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\form_principal.resx">
+      <DependentUpon>form_principal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\form_produtos.resx">
+      <DependentUpon>form_produtos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Produtos\form_produtos_gerenciar.resx">
+      <DependentUpon>form_produtos_gerenciar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\form_usuarios.resx">
+      <DependentUpon>form_usuarios.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Usuarios\form_usuarios_gerenciar.resx">
+      <DependentUpon>form_usuarios_gerenciar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="gastos_pessoaisDataSet.xsc">
+      <DependentUpon>gastos_pessoaisDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="gastos_pessoaisDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gastos_pessoaisDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gastos_pessoaisDataSet.xss">
+      <DependentUpon>gastos_pessoaisDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
