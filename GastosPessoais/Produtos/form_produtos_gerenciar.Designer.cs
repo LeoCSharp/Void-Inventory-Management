@@ -76,6 +76,7 @@
             this.lblIdProdutos.TabIndex = 26;
             this.lblIdProdutos.Text = "Id do Produto";
             this.lblIdProdutos.Visible = false;
+            this.lblIdProdutos.Click += new System.EventHandler(this.lblIdProdutos_Click);
             // 
             // labelControl1
             // 
@@ -177,6 +178,7 @@
             this.txtProdutoPreco.Properties.UseMaskAsDisplayFormat = true;
             this.txtProdutoPreco.Size = new System.Drawing.Size(382, 28);
             this.txtProdutoPreco.TabIndex = 32;
+            this.txtProdutoPreco.EditValueChanged += new System.EventHandler(this.txtProdutoPreco_EditValueChanged);
             // 
             // txtProdutoDescricao
             // 
@@ -192,8 +194,11 @@
             this.lookProdutoCategoria.Name = "lookProdutoCategoria";
             this.lookProdutoCategoria.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookProdutoCategoria.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("cat_nome", "Categorias")});
             this.lookProdutoCategoria.Size = new System.Drawing.Size(382, 28);
             this.lookProdutoCategoria.TabIndex = 36;
+            this.lookProdutoCategoria.EditValueChanged += new System.EventHandler(this.lookProdutoCategoria_EditValueChanged);
             // 
             // tbcategoriaBindingSource
             // 
@@ -275,7 +280,6 @@
             this.IconOptions.ShowIcon = false;
             this.Name = "form_produtos_gerenciar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.form_produtos_gerenciar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtProdutoName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProdutoQuantidade.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProdutoPreco.Properties)).EndInit();
@@ -304,11 +308,11 @@
         public DevExpress.XtraEditors.TextEdit txtProdutoQuantidade;
         public DevExpress.XtraEditors.TextEdit txtProdutoPreco;
         public DevExpress.XtraEditors.TextEdit txtProdutoDescricao;
-        private DevExpress.XtraEditors.LookUpEdit lookProdutoCategoria;
         private gastos_pessoaisDataSet gastos_pessoaisDataSet;
         private System.Windows.Forms.BindingSource tbcategoriaBindingSource;
         private gastos_pessoaisDataSetTableAdapters.tb_categoriaTableAdapter tb_categoriaTableAdapter;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private System.Windows.Forms.BindingSource tb_categoriaBindingSource;
+        public DevExpress.XtraEditors.LookUpEdit lookProdutoCategoria;
     }
 }

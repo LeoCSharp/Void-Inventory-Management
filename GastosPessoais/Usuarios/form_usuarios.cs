@@ -1,16 +1,17 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using GastosPessoais.Data_Base;
+using GastosPessoais.Usuarios;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using GastosPessoais.Usuarios;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace GastosPessoais
 {
     public partial class form_usuarios : DevExpress.XtraEditors.XtraForm
     {
-        SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True");
+        private readonly Conexao conexao = new Conexao();
         SqlCommand cm = new SqlCommand();
 
         public form_usuarios()
@@ -22,26 +23,19 @@ namespace GastosPessoais
         {
             try
             {
-                // Abre a conexão
-                conexao.Open();
-                cm = new SqlCommand("select * from tb_usuarios", conexao);
-                SqlDataAdapter da = new SqlDataAdapter(cm);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                using (SqlConnection conn = conexao.AbrirConexao())
+                {
+                    cm = new SqlCommand("select * from tb_usuarios", conn);
+                    SqlDataAdapter da = new SqlDataAdapter(cm);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    gridUsuarios.DataSource = dt;
+                }
 
-                // Supondo que você tenha um GridView chamado gridViewUsuarios
-                gridUsuarios.DataSource = dt;
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (conexao.State == ConnectionState.Open)
-                {
-                    conexao.Close();
-                }
             }
         }
 
@@ -69,7 +63,7 @@ namespace GastosPessoais
             EditUsuario.txtUserSenha.Text = viewUsuarios.GetRowCellValue(viewUsuarios.FocusedRowHandle, "us_senha").ToString();
             EditUsuario.txtUserTelefone.Text = viewUsuarios.GetRowCellValue(viewUsuarios.FocusedRowHandle, "us_telefone").ToString();
             EditUsuario.txtUserName.Enabled = false;
-            
+
             EditUsuario.ShowDialog();
 
             CarregarUsuario();
@@ -93,10 +87,9 @@ namespace GastosPessoais
             {
                 try
                 {
-                    using (SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa ;Password=123leo;TrustServerCertificate=True"))
+                    using (SqlConnection conn = conexao.AbrirConexao())
                     {
-                        conexao.Open();
-                        using (SqlCommand cm = new SqlCommand("DELETE FROM tb_usuarios WHERE us_id = @id", conexao))
+                        using (SqlCommand cm = new SqlCommand("DELETE FROM tb_usuarios WHERE us_id = @id", conn))
                         {
                             cm.Parameters.AddWithValue("@id", idUsuario);
                             cm.ExecuteNonQuery();

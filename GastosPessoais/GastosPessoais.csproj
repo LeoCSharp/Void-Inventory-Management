@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v24.1.Core, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -41,8 +42,12 @@
     <Reference Include="DevExpress.Drawing.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v24.1.Core, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v24.1.UI, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v24.1.UI, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v24.1.Wizard, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraEditors.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v24.1, Version=24.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -84,6 +89,7 @@
     <Compile Include="Clientes\form_clientes_gerenciar.Designer.cs">
       <DependentUpon>form_clientes_gerenciar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Data Base\conexao.cs" />
     <Compile Include="form_login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>gastos_pessoaisDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\form_pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\form_pedidos.Designer.cs">
+      <DependentUpon>form_pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos\form_pedidos_gerenciar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pedidos\form_pedidos_gerenciar.Designer.cs">
+      <DependentUpon>form_pedidos_gerenciar.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal\form_principal.cs">
       <SubType>Form</SubType>
@@ -112,6 +130,17 @@
     </Compile>
     <Compile Include="Produtos\form_produtos_gerenciar.Designer.cs">
       <DependentUpon>form_produtos_gerenciar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\form_usuarios.cs">
       <SubType>Form</SubType>
@@ -146,6 +175,12 @@
     <EmbeddedResource Include="form_login.resx">
       <DependentUpon>form_login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\form_pedidos.resx">
+      <DependentUpon>form_pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos\form_pedidos_gerenciar.resx">
+      <DependentUpon>form_pedidos_gerenciar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\form_principal.resx">
       <DependentUpon>form_principal.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -158,6 +193,9 @@
       <DependentUpon>form_produtos_gerenciar.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\form_usuarios.resx">
       <DependentUpon>form_usuarios.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -165,14 +203,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Usuarios\form_usuarios_gerenciar.resx">
       <DependentUpon>form_usuarios_gerenciar.cs</DependentUpon>
       <SubType>Designer</SubType>

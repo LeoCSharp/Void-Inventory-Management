@@ -24,7 +24,7 @@ namespace GastosPessoais.Clientes
         {
             txtClienteName.Clear();
             txtClienteTelefone.Clear();
-            
+
         }
 
         private bool IsValidarDadosPreenchidosClientes()
@@ -113,7 +113,7 @@ namespace GastosPessoais.Clientes
 
         private void txtClienteTelefone_Click(object sender, EventArgs e)
         {
-            if(txtClienteTelefone.EditValue == null)
+            if (txtClienteTelefone.EditValue == null)
             {
                 txtClienteTelefone.SelectionStart = 0;
             }

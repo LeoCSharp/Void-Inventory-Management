@@ -3,22 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|c:\\users\\leo15\\source\\repos\\gastospessoais\\gastospessoais\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|c:\\users\\leo15\\source\\repos\\gastospessoais\\gastospessoais\\splashscreen1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|solutionrelative:gastospessoais\\splashscreen1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|C:\\Users\\leo15\\source\\repos\\GastosPessoais\\gastospessoais\\splashscreen1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|solutionrelative:gastospessoais\\splashscreen1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|C:\\Users\\leo15\\source\\repos\\GastosPessoais\\gastospessoais\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|solutionrelative:gastospessoais\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|c:\\users\\leo15\\source\\repos\\gastospessoais\\gastospessoais\\produtos\\form_produtos_gerenciar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|solutionrelative:gastospessoais\\produtos\\form_produtos_gerenciar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|C:\\Users\\leo15\\source\\repos\\GastosPessoais\\gastospessoais\\form_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|solutionrelative:gastospessoais\\form_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|C:\\Users\\leo15\\source\\repos\\GastosPessoais\\gastospessoais\\produtos\\form_produtos_gerenciar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|solutionrelative:gastospessoais\\produtos\\form_produtos_gerenciar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|C:\\Users\\leo15\\source\\repos\\GastosPessoais\\gastospessoais\\form_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B6279D60-C495-4063-A554-DA4A294E3044}|GastosPessoais\\GastosPessoais.csproj|solutionrelative:gastospessoais\\form_login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 191,
+      "VerticalTabListWidth": 205,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -35,40 +43,61 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Program.cs",
-              "RelativeDocumentMoniker": "GastosPessoais\\Program.cs",
-              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Program.cs*",
-              "RelativeToolTip": "GastosPessoais\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Title": "SplashScreen1.cs",
+              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\SplashScreen1.cs",
+              "RelativeDocumentMoniker": "GastosPessoais\\SplashScreen1.cs",
+              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\SplashScreen1.cs",
+              "RelativeToolTip": "GastosPessoais\\SplashScreen1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T02:06:03.982Z",
+              "WhenOpened": "2024-12-12T02:02:08.677Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "form_login.cs",
+              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\form_login.cs",
+              "RelativeDocumentMoniker": "GastosPessoais\\form_login.cs",
+              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\form_login.cs",
+              "RelativeToolTip": "GastosPessoais\\form_login.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAwwCsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T23:47:03.539Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "form_produtos_gerenciar.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Produtos\\form_produtos_gerenciar.cs",
-              "RelativeDocumentMoniker": "GastosPessoais\\Produtos\\form_produtos_gerenciar.cs",
-              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Produtos\\form_produtos_gerenciar.cs [Design]",
-              "RelativeToolTip": "GastosPessoais\\Produtos\\form_produtos_gerenciar.cs [Design]",
+              "Title": "SplashScreen1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\SplashScreen1.cs",
+              "RelativeDocumentMoniker": "GastosPessoais\\SplashScreen1.cs",
+              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\SplashScreen1.cs [Design]",
+              "RelativeToolTip": "GastosPessoais\\SplashScreen1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T02:03:38.934Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-12T01:45:40.363Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "form_produtos_gerenciar.cs",
-              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Produtos\\form_produtos_gerenciar.cs",
-              "RelativeDocumentMoniker": "GastosPessoais\\Produtos\\form_produtos_gerenciar.cs",
-              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Produtos\\form_produtos_gerenciar.cs",
-              "RelativeToolTip": "GastosPessoais\\Produtos\\form_produtos_gerenciar.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAqwGEAAABeAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Program.cs",
+              "RelativeDocumentMoniker": "GastosPessoais\\Program.cs",
+              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\Program.cs",
+              "RelativeToolTip": "GastosPessoais\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T14:50:43.713Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T23:56:26.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "form_login.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\form_login.cs",
+              "RelativeDocumentMoniker": "GastosPessoais\\form_login.cs",
+              "ToolTip": "C:\\Users\\leo15\\source\\repos\\GastosPessoais\\GastosPessoais\\form_login.cs [Design]",
+              "RelativeToolTip": "GastosPessoais\\form_login.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T02:14:50.811Z"
             }
           ]
         }

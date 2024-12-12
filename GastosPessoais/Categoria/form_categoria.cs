@@ -1,21 +1,16 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using GastosPessoais.Data_Base;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GastosPessoais.Categoria
 {
     public partial class form_categoria : DevExpress.XtraEditors.XtraForm
     {
-        SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True");
+        private readonly Conexao conexao = new Conexao();
         SqlCommand cm = new SqlCommand();
         public form_categoria()
         {
@@ -26,9 +21,8 @@ namespace GastosPessoais.Categoria
         {
             try
             {
-                // Abre a conexão
-                conexao.Open();
-                cm = new SqlCommand("select * from tb_categoria", conexao);
+                SqlConnection conn = conexao.AbrirConexao();
+                cm = new SqlCommand("select * from tb_categoria", conn);
                 SqlDataAdapter da = new SqlDataAdapter(cm);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -39,13 +33,7 @@ namespace GastosPessoais.Categoria
             {
                 XtraMessageBox.Show(ex.Message);
             }
-            finally
-            {
-                if (conexao.State == ConnectionState.Open)
-                {
-                    conexao.Close();
-                }
-            }
+
         }
 
         private void btnCategoriaAdicionar_Click(object sender, EventArgs e)
@@ -93,14 +81,12 @@ namespace GastosPessoais.Categoria
             {
                 try
                 {
-                    using (conexao)
+                    SqlConnection conn = conexao.AbrirConexao();
                     {
-                        conexao.Open();
-                        using (SqlCommand cm = new SqlCommand("DELETE FROM tb_categoria WHERE cat_id = @id", conexao))
-                        {
-                            cm.Parameters.AddWithValue("@id", idCategoria);
-                            cm.ExecuteNonQuery();
-                        }
+                        cm = new SqlCommand("DELETE FROM tb_categoria WHERE cat_id = @id", conn);
+                        cm.Parameters.AddWithValue("@id", idCategoria);
+                        cm.ExecuteNonQuery();
+
                     }
                     XtraMessageBox.Show("Categoria deletada com sucesso!");
                     CarregarCategoria();

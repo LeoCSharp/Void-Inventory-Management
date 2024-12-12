@@ -71,6 +71,7 @@
             this.gridColumn2});
             this.viewCategoria.GridControl = this.gridCategoria;
             this.viewCategoria.Name = "viewCategoria";
+            this.viewCategoria.OptionsBehavior.Editable = false;
             this.viewCategoria.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.viewCategoria_PopupMenuShowing);
             // 
             // gridColumn1

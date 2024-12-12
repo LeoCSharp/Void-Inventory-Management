@@ -1,20 +1,14 @@
 ﻿using DevExpress.XtraEditors;
+using GastosPessoais.Data_Base;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GastosPessoais.Categoria
 {
     public partial class form_categoria_gerenciar : DevExpress.XtraEditors.XtraForm
     {
-        SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True");
+        private readonly Conexao conexao = new Conexao();
         SqlCommand cmd = new SqlCommand();
         public form_categoria_gerenciar()
         {
@@ -39,15 +33,14 @@ namespace GastosPessoais.Categoria
                     if (XtraMessageBox.Show("Deseja adicionar esta categoria ? ", "Adicionar Categoria",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        using (conexao)
+                        SqlConnection conn = conexao.AbrirConexao();
                         {
                             SqlCommand cmd = new SqlCommand(
                                 "insert into tb_categoria (cat_nome) values (@categoria)",
-                                conexao);
+                                conn);
                             cmd.Parameters.AddWithValue("@categoria", txtCategoriaName.Text);
-                            conexao.Open();
                             cmd.ExecuteNonQuery();
-                            conexao.Close();
+                            conn.Close();
                             XtraMessageBox.Show("Categoria adicionada com sucesso!");
                             LimparCampoCategoria();
                             this.Close();
@@ -78,16 +71,15 @@ namespace GastosPessoais.Categoria
                     if (XtraMessageBox.Show("Deseja atualizar esta categoria ? ", "Atualizar Categoria",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        using (conexao)
+                        SqlConnection conn = conexao.AbrirConexao();
                         {
                             SqlCommand cmd = new SqlCommand(
                                 "update tb_categoria set cat_nome = @categoria where cat_id = @id",
-                                conexao);
+                                conn);
                             cmd.Parameters.AddWithValue("@categoria", txtCategoriaName.Text);
                             cmd.Parameters.AddWithValue("@id", Convert.ToInt32(lblIdCategoria.Text));
-                            conexao.Open();
                             cmd.ExecuteNonQuery();
-                            conexao.Close();
+                            conn.Close();
                             XtraMessageBox.Show("Categoria atualizada com sucesso!");
                             LimparCampoCategoria();
                             this.Close();

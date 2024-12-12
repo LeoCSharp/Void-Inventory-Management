@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using GastosPessoais.Data_Base;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,7 +10,7 @@ namespace GastosPessoais.Clientes
 {
     public partial class form_clientes : DevExpress.XtraEditors.XtraForm
     {
-        SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True");
+        private readonly Conexao conexao = new Conexao();
         SqlCommand cm = new SqlCommand();
         public form_clientes()
         {
@@ -20,27 +21,21 @@ namespace GastosPessoais.Clientes
         {
             try
             {
-                // Abre a conexão
-                conexao.Open();
-                cm = new SqlCommand("select * from tb_clientes", conexao);
-                SqlDataAdapter da = new SqlDataAdapter(cm);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                using (SqlConnection conn = conexao.AbrirConexao())
+                {
+                    cm = new SqlCommand("select * from tb_clientes", conn);
+                    SqlDataAdapter da = new SqlDataAdapter(cm);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    gridClientes.DataSource = dt;
+                }
 
-                // Supondo que você tenha um GridView chamado gridViewClientes
-                gridClientes.DataSource = dt;
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message);
             }
-            finally
-            {
-                if (conexao.State == ConnectionState.Open)
-                {
-                    conexao.Close();
-                }
-            }
+
         }
 
         private void btnClientesAdicionar_Click(object sender, EventArgs e)
@@ -62,10 +57,9 @@ namespace GastosPessoais.Clientes
             {
                 try
                 {
-                    using (conexao)
+                    using (SqlConnection conn = conexao.AbrirConexao())
                     {
-                        conexao.Open();
-                        using (SqlCommand cm = new SqlCommand("DELETE FROM tb_clientes WHERE cl_id = @id", conexao))
+                        using (SqlCommand cm = new SqlCommand("DELETE FROM tb_clientes WHERE cl_id = @id", conn))
                         {
                             cm.Parameters.AddWithValue("@id", idCliente);
                             cm.ExecuteNonQuery();

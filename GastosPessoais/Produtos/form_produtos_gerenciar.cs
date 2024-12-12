@@ -1,24 +1,15 @@
-﻿using DevExpress.Utils.About;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using GastosPessoais.Data_Base;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace GastosPessoais.Produtos
 {
     public partial class form_produtos_gerenciar : DevExpress.XtraEditors.XtraForm
     {
-        SqlConnection conexao =
-            new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True");
-
+        private readonly Conexao conexao = new Conexao();
         SqlCommand cmd = new SqlCommand();
 
         public form_produtos_gerenciar()
@@ -49,22 +40,22 @@ namespace GastosPessoais.Produtos
                     if (XtraMessageBox.Show("Deseja adicionar este produto ? ", "Adicionar Produto",
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        using (SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True"))
+                        using (SqlConnection conn = conexao.AbrirConexao())
                         {
                             SqlCommand cmd = new SqlCommand(
                                 "insert into tb_produtos (prod_nome, prod_quantidade, prod_preco, prod_descricao, prod_fk_idcategoria) values (@nome, @quantidade, @preco, @descricao, @categoria)",
-                                conexao);
+                                conn);
                             cmd.Parameters.AddWithValue("@nome", txtProdutoName.Text);
                             cmd.Parameters.AddWithValue("@quantidade", txtProdutoQuantidade.Text);
                             cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtProdutoPreco.Text.Replace("R$", "")));
                             cmd.Parameters.AddWithValue("@descricao", txtProdutoDescricao.Text);
                             cmd.Parameters.AddWithValue("@categoria", Convert.ToInt32(lookProdutoCategoria.EditValue));
 
-                            conexao.Open();
                             cmd.ExecuteNonQuery();
-                            conexao.Close();
+                            conn.Close();
                             XtraMessageBox.Show("Produto adicionado com sucesso!");
                             LimparCampoProduto();
+                            this.Close();
 
                         }
 
@@ -81,34 +72,38 @@ namespace GastosPessoais.Produtos
         {
             #region VALIDACOES
 
-            IsValidarDadosPreenchidosProdutos();
+            if (!IsValidarDadosPreenchidosProdutos())
+            {
+                return;
+            }
 
             #endregion
 
             try
             {
-                if (XtraMessageBox.Show("Deseja atualizar este produto?", "Atualizar Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (txtProdutoName != null)
                 {
-                    using (SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True"))
-                    {
-                        SqlCommand cmd = new SqlCommand(
-                            "UPDATE tb_produtos SET prod_nome = @nome, prod_quantidade = @quantidade, prod_preco = @preco, prod_descricao = @descricao, prod_fk_idcategoria = @categoria WHERE prod_id = @id",
-                            conexao);
-                        cmd.Parameters.AddWithValue("@nome", txtProdutoName.Text);
-                        cmd.Parameters.AddWithValue("@quantidade", txtProdutoQuantidade.Text);
-                        cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtProdutoPreco.Text.Replace("R$", "")));
-                        cmd.Parameters.AddWithValue("@descricao", txtProdutoDescricao.Text);
-                        cmd.Parameters.AddWithValue("@categoria", Convert.ToInt32(lookProdutoCategoria.EditValue));
-                        cmd.Parameters.AddWithValue("@id", Convert.ToInt32(lblIdProdutos.Text));
-                        conexao.Open();
-                        cmd.ExecuteNonQuery();
-                        conexao.Close();
-                        XtraMessageBox.Show("Produto atualizado com sucesso!");
-                        LimparCampoProduto();
-                    }
+                    if (XtraMessageBox.Show("Deseja atualizar este produto?", "Atualizar Produto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                        using (SqlConnection conn = conexao.AbrirConexao())
+                        {
+                            SqlCommand cmd = new SqlCommand(
+                                "UPDATE tb_produtos SET prod_nome = @nome, prod_quantidade = @quantidade, prod_preco = @preco, prod_descricao = @descricao, prod_fk_idcategoria = @categoria WHERE prod_id = @id",
+                                conn);
+                            cmd.Parameters.AddWithValue("@nome", txtProdutoName.Text);
+                            cmd.Parameters.AddWithValue("@quantidade", txtProdutoQuantidade.Text);
+                            cmd.Parameters.AddWithValue("@preco", Convert.ToDecimal(txtProdutoPreco.Text.Replace("R$", "")));
+                            cmd.Parameters.AddWithValue("@descricao", txtProdutoDescricao.Text);
+                            cmd.Parameters.AddWithValue("@categoria", Convert.ToInt32(lookProdutoCategoria.EditValue));
+                            cmd.Parameters.AddWithValue("@id", Convert.ToInt32(lblIdProdutos.Text));
+                            cmd.ExecuteNonQuery();
+                            XtraMessageBox.Show("Produto atualizado com sucesso!");
+                            LimparCampoProduto();
+                            this.Close();
+                        }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 XtraMessageBox.Show("Erro ao atualizar produto" + ex.Message);
             }
@@ -163,10 +158,10 @@ namespace GastosPessoais.Produtos
 
         private void CarregarCategorias()
         {
-            using (conexao)
+            using (SqlConnection conn = conexao.AbrirConexao())
             {
                 string query = "SELECT * FROM tb_categoria";
-                SqlDataAdapter da = new SqlDataAdapter(query, conexao);
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
@@ -175,18 +170,26 @@ namespace GastosPessoais.Produtos
                 lookProdutoCategoria.Properties.ValueMember = "cat_id";     // O valor real (ID da categoria)
                 lookProdutoCategoria.Properties.DisplayMember = "cat_nome"; // O que será exibido no LookUpEdit
                 lookProdutoCategoria.Properties.NullText = "Selecione uma categoria"; // Texto padrão
-                
+
                 ; // Recarrega com as configurações corretas
 
             }
 
-            
+
         }
 
-
-        private void form_produtos_gerenciar_Load(object sender, EventArgs e)
+        private void lookProdutoCategoria_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtProdutoPreco_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIdProdutos_Click(object sender, EventArgs e)
+        {
 
         }
     }

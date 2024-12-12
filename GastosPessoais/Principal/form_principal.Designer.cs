@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_principal));
+            DevExpress.XtraCharts.XYDiagram xyDiagram4 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.StackedBarSeriesView stackedBarSeriesView4 = new DevExpress.XtraCharts.StackedBarSeriesView();
+            DevExpress.XtraCharts.RectangleGradientFillOptions rectangleGradientFillOptions4 = new DevExpress.XtraCharts.RectangleGradientFillOptions();
+            DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.ChartTitle chartTitle4 = new DevExpress.XtraCharts.ChartTitle();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnPedidos = new DevExpress.XtraEditors.SimpleButton();
@@ -45,15 +51,22 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.pnlPrincipal = new DevExpress.XtraEditors.PanelControl();
+            this.chartControlPedidos = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPrincipal)).BeginInit();
+            this.pnlPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlPedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(stackedBarSeriesView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Red;
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.labelControl1);
@@ -93,6 +106,7 @@
             this.btnPedidos.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
             this.btnPedidos.Size = new System.Drawing.Size(41, 29);
             this.btnPedidos.TabIndex = 21;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
             // 
             // labelControl8
             // 
@@ -196,7 +210,7 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Appearance.BackColor = System.Drawing.Color.Red;
+            this.panelControl2.Appearance.BackColor = System.Drawing.Color.DarkSlateGray;
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -207,11 +221,49 @@
             // 
             // pnlPrincipal
             // 
+            this.pnlPrincipal.Controls.Add(this.chartControlPedidos);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(0, 76);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(1278, 595);
             this.pnlPrincipal.TabIndex = 2;
+            // 
+            // chartControlPedidos
+            // 
+            this.chartControlPedidos.AppearanceNameSerializable = "Dark";
+            this.chartControlPedidos.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.chartControlPedidos.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.False;
+            xyDiagram4.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram4.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControlPedidos.Diagram = xyDiagram4;
+            this.chartControlPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControlPedidos.Legend.MarkerMode = DevExpress.XtraCharts.LegendMarkerMode.CheckBox;
+            this.chartControlPedidos.Legend.MarkerSize = new System.Drawing.Size(16, 16);
+            this.chartControlPedidos.Location = new System.Drawing.Point(2, 2);
+            this.chartControlPedidos.Name = "chartControlPedidos";
+            this.chartControlPedidos.PaletteBaseColorNumber = 4;
+            this.chartControlPedidos.PaletteName = "Black and White";
+            series7.Name = "Dias da semana";
+            series7.SeriesID = 0;
+            stackedBarSeriesView4.BarWidth = 0.4D;
+            stackedBarSeriesView4.Border.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            stackedBarSeriesView4.FillStyle.FillMode = DevExpress.XtraCharts.FillMode.Gradient;
+            rectangleGradientFillOptions4.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stackedBarSeriesView4.FillStyle.Options = rectangleGradientFillOptions4;
+            series7.View = stackedBarSeriesView4;
+            series8.CheckedInLegend = false;
+            series8.Name = "Mês";
+            series8.SeriesID = 3;
+            series8.Visible = false;
+            this.chartControlPedidos.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series7,
+        series8};
+            this.chartControlPedidos.Size = new System.Drawing.Size(1274, 591);
+            this.chartControlPedidos.TabIndex = 0;
+            chartTitle4.Text = "Vendas";
+            chartTitle4.TitleID = 0;
+            this.chartControlPedidos.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle4});
             // 
             // form_principal
             // 
@@ -229,6 +281,12 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlPrincipal)).EndInit();
+            this.pnlPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(stackedBarSeriesView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlPedidos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +309,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraCharts.ChartControl chartControlPedidos;
     }
 }

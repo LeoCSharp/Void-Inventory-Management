@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace GastosPessoais.Properties {
+    using DevExpress.Utils.Svg;
     using System;
     
     
@@ -31,7 +32,13 @@ namespace GastosPessoais.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
+        public static SvgImage DevExpressLogo
+        {
+            get;
+            internal set;
+        }
+
         /// <summary>
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>

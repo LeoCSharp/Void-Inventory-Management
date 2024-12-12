@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using GastosPessoais.Data_Base;
 using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace GastosPessoais.Usuarios
 {
     public partial class form_usuarios_gerenciar : DevExpress.XtraEditors.XtraForm
     {
-        SqlConnection conexao = new SqlConnection("Data Source=DESKTOP-A7R1DL8\\SQLEXPRESS;Initial Catalog=gastos_pessoais;Persist Security Info=True;User ID=sa;Password=123leo;TrustServerCertificate=True");
+        private readonly Conexao conexao = new Conexao();
         SqlCommand cmd = new SqlCommand();
 
         //Jeito 1
@@ -46,18 +47,16 @@ namespace GastosPessoais.Usuarios
                 {
 
 
-                    using (conexao)
+                    using (SqlConnection conn = conexao.AbrirConexao())
                     {
                         cmd = new SqlCommand(
                             "insert into tb_usuarios (us_usuario, us_nomecompleto, us_senha, us_telefone) values (@usuario, @nomecompleto, @senha, @telefone)",
-                            conexao);
+                            conn);
                         cmd.Parameters.AddWithValue("@usuario", txtUserName.Text);
                         cmd.Parameters.AddWithValue("@nomecompleto", txtUserNomeCompleto.Text);
                         cmd.Parameters.AddWithValue("@senha", txtUserSenha.Text);
                         cmd.Parameters.AddWithValue("@telefone", txtUserTelefone.Text);
-                        conexao.Open();
                         cmd.ExecuteNonQuery();
-                        conexao.Close();
                         XtraMessageBox.Show("Usuário cadastrado com sucesso!");
                         LimparCampoUsuario();
                         this.Close();
@@ -99,18 +98,15 @@ namespace GastosPessoais.Usuarios
                 }
                 if (XtraMessageBox.Show("Deseja atualizar este usuário?", "Atualizar Usuário", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    using (conexao)
+                    using (SqlConnection conn = conexao.AbrirConexao())
                     {
-                        cmd = new SqlCommand("update tb_usuarios set us_nomecompleto = @nomecompleto, us_senha = @senha, us_telefone = @telefone where us_id = @id", conexao);
+                        cmd = new SqlCommand("update tb_usuarios set us_nomecompleto = @nomecompleto, us_senha = @senha, us_telefone = @telefone where us_id = @id", conn);
                         //cmd.Parameters.AddWithValue("@id", idUsuario); //Jeito 1
                         cmd.Parameters.AddWithValue("@id", lblIdUsuario.Text); //Jeito 2
                         cmd.Parameters.AddWithValue("@nomecompleto", txtUserNomeCompleto.Text);
                         cmd.Parameters.AddWithValue("@senha", txtUserSenha.Text);
                         cmd.Parameters.AddWithValue("@telefone", txtUserTelefone.Text);
-                        conexao.Open();
                         cmd.ExecuteNonQuery();
-                        conexao.Close();
-                        this.Close();
                     }
                     XtraMessageBox.Show("Usuário atualizado com sucesso!");
 

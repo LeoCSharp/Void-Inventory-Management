@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DevExpress.XtraSplashScreen;
+using GastosPessoais.Properties;
+using System;
+using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace GastosPessoais
@@ -13,7 +17,8 @@ namespace GastosPessoais
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_principal());
+            Application.Run(new form_login());
+            
         }
     }
 }

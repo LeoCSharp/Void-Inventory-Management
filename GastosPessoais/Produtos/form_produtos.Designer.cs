@@ -109,6 +109,7 @@
             this.gridColumn6});
             this.viewProdutos.GridControl = this.gridProdutos;
             this.viewProdutos.Name = "viewProdutos";
+            this.viewProdutos.OptionsBehavior.Editable = false;
             this.viewProdutos.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.viewProdutos_PopupMenuShowing);
             // 
             // gridColumn1
@@ -116,8 +117,6 @@
             this.gridColumn1.Caption = "ID Produtos";
             this.gridColumn1.FieldName = "prod_id";
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
             // 
             // gridColumn2
             // 
@@ -125,15 +124,18 @@
             this.gridColumn2.FieldName = "prod_nome";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 100;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Quantidade";
             this.gridColumn3.FieldName = "prod_quantidade";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 84;
             // 
             // gridColumn4
             // 
@@ -141,7 +143,8 @@
             this.gridColumn4.FieldName = "prod_preco";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 43;
             // 
             // gridColumn5
             // 
@@ -149,15 +152,17 @@
             this.gridColumn5.FieldName = "prod_descricao";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 498;
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "gridColumn6";
-            this.gridColumn6.FieldName = "prod_categoria";
+            this.gridColumn6.Caption = "Categoria";
+            this.gridColumn6.FieldName = "cat_nome";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 200;
             // 
             // popupProdutos
             // 
